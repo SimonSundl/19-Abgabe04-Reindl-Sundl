@@ -6,7 +6,7 @@
 
 ### Queue Exercise ###
 
-##Taskliste
+## Taskliste
 
 - [+] Tasklist
 - [+] Code correction/debugging
@@ -90,4 +90,3 @@ Letztes Korrekturlesen und Kontrollen wurden erfolgreich von beiden Teammitglied
 ## Create PDF-Version and hand it in
 
 Zuletzt wurde das Dokument in PDF-Format exportiert und abgegeben.
-
