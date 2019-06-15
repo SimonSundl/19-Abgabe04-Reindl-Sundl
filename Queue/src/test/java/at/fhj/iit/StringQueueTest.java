@@ -18,6 +18,9 @@ public class StringQueueTest {
         test = new StringQueue();
     }
 
+    /**
+     * A Simple test which adds and removes 5 objects.
+     */
     @Test
     public void simple(){
         test.offer("Hi");
@@ -32,11 +35,17 @@ public class StringQueueTest {
         Assert.assertEquals("Servus", test.remove());
     }
 
+    /**
+     * Forcing NoSuchElementException whilst trying to remove an object from an empty queue.
+     */
     @Test(expected = NoSuchElementException.class)
     public void noSuchElement(){
         test.remove();
     }
 
+    /**
+     * Testing if maximum size works as intended.
+     */
     @Test
     public void size(){
         StringQueue test2 = new StringQueue(1);
@@ -46,6 +55,9 @@ public class StringQueueTest {
         Assert.assertEquals("Testing", test2.poll());
     }
 
+    /**
+     * Various Tests with null values.
+     */
     @Test
     public void nullTests(){
         test.offer(null);

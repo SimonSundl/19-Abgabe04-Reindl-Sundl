@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * A Queue Implementation class in Java.
  * When creating an object you can decide the size or it will be set to 5.
@@ -11,20 +14,24 @@ import java.util.NoSuchElementException;
  */
 
 public class StringQueue implements Queue {
-	
+
+	private static final Logger LOG = LogManager.getLogger(StringQueue.class);
 	private List<String> elements = new ArrayList<String>();
 	private int maxSize = 5;
 
 	/**
 	 * Empty constructor of a StringQueue, size is set to 5.
 	 */
-	public StringQueue(){}			//Since maxSize has a predefined value, we can create an empty constructor as well.
+	public StringQueue(){		//Since maxSize has a predefined value, we can create an empty constructor as well.
+		LOG.info("Calling String Queue Constructor");
+	}
 
 	/**
 	 * Constructor of a StringQueue.
 	 * @param maxsize sets the maximum number of elements in the ArrayList.
 	 */
 	public StringQueue(int maxsize){
+		LOG.info("Calling String Queue Constructor");
 		maxSize = maxsize;
 	}
 
@@ -33,6 +40,7 @@ public class StringQueue implements Queue {
 	 * @return maxSize.
 	 */
 	public int getMaxSize(){
+		LOG.info("Calling getMaxSize method");
 		return maxSize;
 	}
 
@@ -43,6 +51,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public boolean offer(String obj) {
+		LOG.info("Calling offer method");
 		if(obj == null)
 			obj = "nullValue"; 				//To avoid errors, we change a null object to a string "nullValue".
 		if(elements.size()!= maxSize){
@@ -61,6 +70,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String poll() {
+		LOG.info("Calling poll method");
 		String element = peek();
 		/*
 		Error, if elements.size == 0 no element can be removed.
@@ -83,6 +93,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String remove() {
+		LOG.info("Calling remove method");
 		String element = poll();		
 		//element = "";						//Error, element will be overwritten.
 		if(element == null)
@@ -97,6 +108,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String peek() {
+		LOG.info("Calling peek method");
 		String element;
 		if(elements.size() > 0)
 			element = elements.get(0);
@@ -112,6 +124,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String element() {
+		LOG.info("Calling element method");
 		String element = peek();
 		if(element == null)
 			throw new NoSuchElementException("there's no element any more");
