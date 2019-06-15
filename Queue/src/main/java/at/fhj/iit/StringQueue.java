@@ -29,6 +29,14 @@ public class StringQueue implements Queue {
 	}
 
 	/**
+	 * Returns the maximum Size of the Queue.
+	 * @return maxSize.
+	 */
+	public int getMaxSize(){
+		return maxSize;
+	}
+
+	/**
 	 * Adds a String obj to the Queue Arraylist.
 	 * @param obj is the String which is trying to be added to the Queue.
 	 * @return true if object can be added, false if not.
