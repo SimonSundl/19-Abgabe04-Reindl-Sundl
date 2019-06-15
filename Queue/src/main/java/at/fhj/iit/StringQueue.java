@@ -4,23 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-// there's some Bugs included, try to debug the code and fix the Bugs
-// there are different Bugs, wrong implementation, typos, ...
-// write Test-Cases (read Queue Interface for understanding methods) and use Debugging possibilies of your IDE
+/**
+ * A Queue Implementation class in Java.
+ * When creating an object you can decide the size or it will be set to 5.
+ * The Queue is saved in a String-Arraylist and methods can add, remove and throw errors if needed.
+ */
 
 public class StringQueue implements Queue {
 	
 	private List<String> elements = new ArrayList<String>();
 	private int maxSize = 5;
 
+	/**
+	 * Empty constructor of a StringQueue, size is set to 5.
+	 */
+	public StringQueue(){}			//Since maxSize has a predefined value, we can create an empty constructor as well.
+
+	/**
+	 * Constructor of a StringQueue.
+	 * @param maxsize sets the maximum number of elements in the ArrayList.
+	 */
 	public StringQueue(int maxsize){
-		maxSize = maxSize;
+		maxSize = maxsize;
 	}
-	
+
+	/**
+	 * Adds a String obj to the Queue Arraylist.
+	 * @param obj is the String which is trying to be added to the Queue.
+	 * @return true if object can be added, false if not.
+	 */
 	@Override
 	public boolean offer(String obj) {
 		if(obj == null)
-			obj = "null"; 				//To avoid errors, we change a null object to a string "null".
+			obj = "nullValue"; 				//To avoid errors, we change a null object to a string "nullValue".
 		if(elements.size()!= maxSize){
 			elements.add(obj);
 			return true;
@@ -31,6 +47,10 @@ public class StringQueue implements Queue {
 		//return true;				Error, this return statement is unreachable due to the if else query.
 	}
 
+	/**
+	 * Removes first element in the Queue.
+	 * @return the deleted element.
+	 */
 	@Override
 	public String poll() {
 		String element = peek();
@@ -49,6 +69,10 @@ public class StringQueue implements Queue {
 		return element;
 	}
 
+	/**
+	 * Removes first element in the Queue. Also throws a NoSuchElementException if queue is empty.
+	 * @return the deleted element.
+	 */
 	@Override
 	public String remove() {
 		String element = poll();		
@@ -59,6 +83,10 @@ public class StringQueue implements Queue {
 		return element;
 	}
 
+	/**
+	 * Returns first element or null if queue is empty.
+	 * @return the first element.
+	 */
 	@Override
 	public String peek() {
 		String element;
@@ -70,6 +98,10 @@ public class StringQueue implements Queue {
 		return element;
 	}
 
+	/**
+	 * Returns first element or NoSuchElementException if queue is empty.
+	 * @return the first element.
+	 */
 	@Override
 	public String element() {
 		String element = peek();
